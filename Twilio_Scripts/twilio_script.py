@@ -22,7 +22,7 @@ from utils import request_wapi,get_forecast,create_df,send_message,get_date
 
 
 
-query = 'Bogotá'
+query = 'Bristol'
 api_key = API_KEY_WAPI
 
 input_date= get_date()
