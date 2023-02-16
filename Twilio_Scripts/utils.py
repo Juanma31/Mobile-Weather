@@ -62,7 +62,7 @@ def send_message(TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN,input_date,df,query):
                     .create(
                         body='\nHola! \n\n\n El pronostico de lluvia hoy '+ input_date +' en ' + query +' es : \n\n\n ' + str(df),
                         from_=PHONE_NUMBER,
-                        to='+573222007879'
+                        to='+447568279452'
                     )
 
     return message.sid
