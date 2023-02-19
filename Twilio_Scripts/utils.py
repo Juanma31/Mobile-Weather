@@ -57,12 +57,20 @@ def send_message(TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN,input_date,df,query):
     auth_token = TWILIO_AUTH_TOKEN
 
     client = Client(account_sid, auth_token)
-
-    message = client.messages \
-                    .create(
-                        body='\nHola! \n\n\n El pronostico de lluvia hoy '+ input_date +' en ' + query +' es : \n\n\n ' + str(df),
-                        from_=PHONE_NUMBER,
-                        to='+447568279452'
-                    )
+    
+    if(df.empty):
+        message = client.messages \
+                            .create(
+                                body='\nHello! \n\n\n Today '+ input_date +' in ' + query +' no rain is expected',
+                                from_=PHONE_NUMBER,
+                                to='+447568279452'
+                            )
+    else:
+        message = client.messages \
+                            .create(
+                                body='\nHello! \n\n\n The weather forecast today '+ input_date +' in ' + query +' is : \n\n\n ' + str(df),
+                                from_=PHONE_NUMBER,
+                                to='+447568279452'
+                            )
 
     return message.sid
