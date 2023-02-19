@@ -1,12 +1,3 @@
-"""
-************************************************************************
-* Author = @alexbonella                                                *
-* Date = '15/09/2022'                                                  *
-* Description = Envio de mensajes Twilio con Python                    *
-************************************************************************
-"""
-
-
 import os
 from twilio.rest import Client
 from twilio_config import TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN,PHONE_NUMBER,API_KEY_WAPI
