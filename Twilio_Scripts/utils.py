@@ -62,15 +62,15 @@ def send_message(TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN,input_date,df,query):
         message = client.messages \
                             .create(
                                 body='\nHello! \n\n\n Today '+ input_date +' in ' + query +' no rain is expected',
-                                from_=PHONE_NUMBER,
-                                to='+447568279452'
+                                from_='whatsapp:+14155238886',
+                                to='whatsapp:+447568279452'
                             )
     else:
         message = client.messages \
                             .create(
                                 body='\nHello! \n\n\n The weather forecast today '+ input_date +' in ' + query +' is : \n\n\n ' + str(df),
-                                from_=PHONE_NUMBER,
-                                to='+447568279452'
+                                from_='whatsapp:+14155238886',
+                                to='whatsapp:+447568279452'
                             )
 	
   
