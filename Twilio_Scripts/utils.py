@@ -58,7 +58,7 @@ def send_message(TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN,input_date,df,query):
 
     client = Client(account_sid, auth_token)
     
-    if(df.empty):
+   """ if(df.empty):
         message = client.messages \
                             .create(
                                 body='\nHello! \n\n\n Today '+ input_date +' in ' + query +' no rain is expected',
@@ -71,6 +71,20 @@ def send_message(TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN,input_date,df,query):
                                 body='\nHello! \n\n\n The weather forecast today '+ input_date +' in ' + query +' is : \n\n\n ' + str(df),
                                 from_=PHONE_NUMBER,
                                 to='+447568279452'
-                            )
+                            )"""
+    if(df_rain. empty):
+        message = client.messages \
+                    .create(
+                         body='\nHello! \n\n\n Today '+ df['Date'][0] +' in ' + query +' no rain is expected.',
+                         from_=WHATSAPP_NUMBER,
+                         to='whatsapp:+447568279452'
+                    )
+    else:
+        message = client.messages \
+                        .create(
+                             body='\nHello! \n\n\n The weather forecast today '+ df['Date'][0] +' in ' + query +' is : \n\n\n ' + str(df_rain),
+                             from_=WHATSAPP_NUMBER,
+                             to='whatsapp:+447568279452'
+                        )
 
     return message.sid
