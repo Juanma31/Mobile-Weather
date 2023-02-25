@@ -1,7 +1,7 @@
 
 import pandas as pd
 from twilio.rest import Client
-from twilio_config import TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN,PHONE_NUMBER,API_KEY_WAPI
+from twilio_config import TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN,PHONE_NUMBER,API_KEY_WAPI,MY_NUMBER
 from datetime import datetime
 import requests
 from requests import Request, Session
@@ -63,14 +63,14 @@ def send_message(TWILIO_ACCOUNT_SID,TWILIO_AUTH_TOKEN,input_date,df,query):
                             .create(
                                 body='\nHello! \n\n\n Today '+ input_date +' in ' + query +' no rain is expected',
                                 from_=PHONE_NUMBER,
-                                to='+447568279452'
+                                to=MY_NUMBER
                             )
     else:
         message = client.messages \
                             .create(
                                 body='\nHello! \n\n\n The weather forecast today '+ input_date +' in ' + query +' is : \n\n\n ' + str(df),
                                 from_=PHONE_NUMBER,
-                                to='+447568279452'
+                                to=MY_NUMBER
                             )
 	
   
